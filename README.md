@@ -37,21 +37,16 @@
 
 ### Data Dictionary
 
+
 ### Steps to Reproduce
 * Clone this repo.
-* Acquire the data from Kaggle
+* Confirm variables from user env.py file as
+        user = 'your user name', 
+        pwd = 'your password', 
+        host = 'data.codeup.com'password pwd, etc.)
+* Confirm function that returns:
+        return f'mysql+pymysql://{user}:{pwd}@{host}/{database}'
+* Acquire the data from CodeUp database
 * Put the data in the file containing the cloned repo.
 * Run notebook
 
-### Takeaways and Conclusions
-Upsets occur in 1/3 of games
-In games where the lower rated player moves first there is a 4% greater chance of an upset
-Games that are rated have a 3% higher chance of an upset
-Games with a "quick" time control (30 min or less) have about a 1 in 3 chance of upset
-Games with a "slow" time control (60 min or more) have about a 1 in 5 chance of upset
-The mean rating of players in a game is not a driver of upsets
-The difference in player rating is a driver of upsets
-A player's choice of opening is a driver of upsets, however its influence is complicated and I would need more time to discover what role it plays
-Recommendations
-To increase the skill intensity of a game add to the length of time players are able to consider their moves
-Based on the data longer time controls make it less likely for a less skilled player to beat a more skilled player
