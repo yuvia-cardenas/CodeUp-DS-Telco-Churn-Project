@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 
 def get_telco_data():
     '''
-    This function reads in telco data from Codeup database, writes data to
+    Function reads in telco data from Codeup database, writes data to
     a csv file if a local file does not exist, and returns a df.
     '''
     if os.path.isfile('telco.csv'):
