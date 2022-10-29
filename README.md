@@ -9,8 +9,6 @@
 
 * Use drivers to develop a machine learning model to classify customers as ending in churn or not ending in churn.
 
-* Churn is defined as a customer that has cancelled (any or all) of their services.
-
 * This information could be used to further our understanding of what makes a customer churn and how to avoid that outcome.
 
 #### My initial hypothesis is that drivers of churn will be elements that either cause an outright cancellation of product/services or increase the likelihood of a customer churning.
@@ -29,6 +27,8 @@
 #### Draw conclusions
 
 ### Data Dictionary
+
+* Churn is defined as a customer that has cancelled (any or all) of their services.
 
 ### Steps to Reproduce
 * Clone this repo.
