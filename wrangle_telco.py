@@ -5,15 +5,35 @@ import pandas as pd
 import numpy as np
 
 import env
-from env import get_db_url
 from env import host, user, pwd
 from sklearn.model_selection import train_test_split
 #################### Acquire, Prepare, Train, Validate, Test, & Split Function ##################################
 
 
+def get_db_url(database):
+    return f'mysql+pymysql://{user}:{pwd}@{host}/{database}'
+    '''
+    Function reads in credentials from env.py file of the user and returns telco data.
+    '''
+def new_telco_data():
+    '''
+    This function reads the telco data from the Codeup db into a df.
+    '''
+    sql_query = """
+                select * from customers
+                join contract_types using (contract_type_id)
+                join internet_service_types using (internet_service_type_id)
+                join payment_types using (payment_type_id)
+                """
+    
+    # Read in DataFrame from Codeup db.
+    df = pd.read_sql(sql_query, get_db_url('telco_churn'))
+    
+    return df
+
 def get_telco_data():
     '''
-    Function reads in telco data from Codeup database, writes data to
+    This function reads in telco data from Codeup database, writes data to
     a csv file if a local file does not exist, and returns a df.
     '''
     if os.path.isfile('telco.csv'):
@@ -31,9 +51,10 @@ def get_telco_data():
         
     return df
 
+
 def prep_telco_data(df):
     # Drop duplicate columns
-    df.drop(columns=['payment_type_id', 'internet_service_type_id', 'contract_type_id', 'customer_id'], inplace=True)
+    df.drop(columns=['payment_type_id', 'internet_service_type_id', 'contract_type_id'], inplace=True)
        
     # Drop null values stored as whitespace    
     df['total_charges'] = df['total_charges'].str.strip()
@@ -61,14 +82,17 @@ def prep_telco_data(df):
                               'contract_type', \
                               'internet_service_type', \
                               'payment_type']], dummy_na=False, \
-                              drop_first=True)
+                              drop_first=False)
     
     # Concatenate dummy dataframe to original 
     df = pd.concat([df, dummy_df], axis=1)
     # split the data
     train, validate, test = split_telco_data(df)
-    
-    return train, validate, test
+    customer_id = test.customer_id
+    test = test.drop(columns=['customer_id'])
+    train = train.drop(columns=['customer_id'])
+    validate = validate.drop(columns=['customer_id'])
+    return train, validate, test, customer_id
    
 
 def split_telco_data(df):
