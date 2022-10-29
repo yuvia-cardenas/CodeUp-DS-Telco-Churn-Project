@@ -28,7 +28,7 @@
 
 ### Data Dictionary
 
-* Churn is defined as a customer that has cancelled (any or all) of their services.
+* Churn is defined as a customer that has cancelled their services.
 
 ### Steps to Reproduce
 * Clone this repo.
