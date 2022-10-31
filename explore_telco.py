@@ -6,7 +6,9 @@ from scipy import stats
 #################### Statistical and Visuals Functions ##################################
 alpha = 0.05 
 def get_chi_gender(train):
-    '''gets results of chi-square statistical test for gender and churn'''
+    '''
+    Function gets results of chi-square statistical test for gender and churn
+    '''
 
     observed = pd.crosstab(train.churn_encoded, train.gender)
     chi2, p, degf, expected = stats.chi2_contingency(observed)
@@ -19,7 +21,9 @@ def get_chi_gender(train):
     print(f'p     = {p:.4f}')
 
 def get_chi_phone(train):
-    '''gets results of chi-square statistical test for phone service and churn'''
+    '''
+    Function gets results of chi-square statistical test for phone service and churn
+    '''
 
     observed = pd.crosstab(train.churn_encoded, train.phone_service_encoded)
     chi2, p, degf, expected = stats.chi2_contingency(observed)
@@ -32,7 +36,9 @@ def get_chi_phone(train):
     print(f'p     = {p:.4f}')
 
 def get_chi_contract_type(train):
-    '''gets results of chi-square statistical test for contract type and churn'''
+    '''
+    Function gets results of chi-square statistical test for contract type and churn
+    '''
 
     observed = pd.crosstab(train.churn_encoded, train.contract_type)
     chi2, p, degf, expected = stats.chi2_contingency(observed)
@@ -45,7 +51,9 @@ def get_chi_contract_type(train):
     print(f'p     = {p:.4f}')
 
 def get_chi_internet_type(train):
-    '''gets results of chi-square statistical test for internet type and churn'''
+    '''
+    Function gets results of chi-square statistical test for internet type and churn
+    '''
 
     observed = pd.crosstab(train.churn_encoded, train.internet_service_type)
     chi2, p, degf, expected = stats.chi2_contingency(observed)
