@@ -108,3 +108,5 @@ def get_rf_test(x_train, y_train, x_validate, y_validate, x_test, y_test):
     # print result
     print('Accuracy of Random Forest classifier on test set: {:.2f}'
       .format(rf.score(x_test, y_test)))
+
+
