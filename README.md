@@ -7,7 +7,7 @@
 ### Project Goals
 * Discover drivers of customer churn in Telco DataSet.
 
-* Use drivers to develop a machine learning model to classify customers as ending in churn or not ending in churn.
+* Use drivers to develop a machine learning model to predict customer churn.
 
 * This information could be used to further our understanding of what makes a customer churn and how to avoid that outcome.
 
